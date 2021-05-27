@@ -13,7 +13,20 @@ namespace AddressBookDB
             AddressBookRepo repo = new AddressBookRepo();
             AddressBookModel contact = new AddressBookModel();
 
-            repo.GetAllDetails();
+            contact.FirstName = "Sham";
+            contact.LastName = "Sundar";
+            contact.Address = "02-Delhi";
+            contact.City = "Delhi";
+            contact.State = "Delhi";
+            contact.Zip = "589612";
+            contact.PhoneNumber = "8877559966";
+            contact.Email = "sham@gmail.com";
+            contact.Type = "Friend";
+
+            if (repo.AddPersonDetails(contact))
+                Console.WriteLine("Records added successfully");
+
+           // repo.GetAllDetails();
             Console.ReadKey();
         }
     }
