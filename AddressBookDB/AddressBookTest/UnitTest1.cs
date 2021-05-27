@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AddressBookDB;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
-namespace AddressBookDB
+namespace AddressBookTest
 {
-    class Program
+    [TestClass]
+    public class UnitTest1
     {
-        static void Main(string[] args)
+        [TestMethod]
+        public void TestMethod1()
         {
             AddressBookRepo repo = new AddressBookRepo();
             AddressBookModel contact = new AddressBookModel();
 
-            /*contact.FirstName = "Sham";
+            contact.FirstName = "Sham";
             contact.LastName = "Sundar";
             contact.Address = "02-Delhi";
             contact.City = "Delhi";
@@ -22,12 +22,9 @@ namespace AddressBookDB
             contact.PhoneNumber = "8877559966";
             contact.Email = "sham@gmail.com";
             contact.Type = "Friend";
-            if (repo.AddPersonDetails(contact))
-                Console.WriteLine("Records added successfully");*/
-
-            // repo.GetAllDetails();
-            repo.UpdateDetails();
-            Console.ReadKey();
+            var result = repo.AddEmployee(contact);
+            Assert.IsTrue(result);
         }
+
     }
 }
