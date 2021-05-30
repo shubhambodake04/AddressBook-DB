@@ -11,6 +11,7 @@ namespace AddressBookDB
     {
         public static string ConnectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=address_book;Integrated Security=True";
         SqlConnection connection = new SqlConnection(ConnectionString);
+       
         public void GetAllDetails()
         {
             try
@@ -117,5 +118,28 @@ namespace AddressBookDB
                 Console.WriteLine(e.Message);
             }
         }
-    }
+        public void Remove()
+        {
+           try
+            {
+                using (connection)
+                {
+                    string query = $"delete from contacts where Firstname = 'Sham'";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    var result = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (result != 0)
+                    {
+                        Console.WriteLine("Contact Deleted");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+       
+        }
 }
