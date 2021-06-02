@@ -25,9 +25,9 @@ namespace AddressBookDB
             if (repo.AddPersonDetails(contact))
                 Console.WriteLine("Records added successfully");*/
 
-            //repo.GetAllDetails();
+            repo.GetAllDetails();
             //repo.UpdateDetails();
-            repo.Remove();
+            //repo.Remove();
             Console.ReadKey();
         }
     }
